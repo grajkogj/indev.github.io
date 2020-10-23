@@ -1,0 +1,108 @@
+.button1 {
+    border-radius: 4px;
+    padding: 4px;
+    display: inline-block;
+    outline: none;
+}
+.button1:hover {
+    cursor: pointer;
+}
+.button2 {
+    background:rgb(128, 128, 128);
+    border-bottom: solid;
+    border-width: 1px;
+    color: rgb(39, 39, 39);
+    height: 24px;
+    width: 100%;
+    outline: none;
+    text-align: left;
+    font-size: 100%;
+    padding: 2px;
+}
+.button2:hover {
+    cursor: pointer;
+    background: rgb(100, 100, 100);
+}
+.hidden {
+    display: none;
+}
+.window {
+    border-radius: 5px;
+    padding: 5px;
+    padding-top: 35px;
+    border-color: rgb(27, 27, 27);
+    border: solid;
+    background: rgb(134, 134, 134);
+    place-items: center;
+    display: grid;
+    min-height: 50px;
+    min-width: 135px;
+    resize: both;
+    position: absolute;
+}
+.window-header {
+    place-items: center;
+    padding: 5px;
+    border-color: rgb(27, 27, 27);
+    display: grid;
+    border-bottom: solid;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    font-size-adjust: initial;
+}
+.close-window-button {
+    border-radius: 50px;
+    background: rgb(167, 0, 0);
+    padding: 5px;
+    padding-top: 0px;
+    height: 19px;
+    display: inline-block;
+    outline: none;
+}
+.close-window-button:hover {
+    background: rgb(255, 0, 0);
+    cursor: pointer;
+}
+.section-header {
+    padding: 5px;
+    border-radius: 5px;    
+}
+.dropdown {
+    position: absolute;
+    border-radius: 5px;
+    background: rgb(128, 128, 128);
+    width: 250px;
+    min-height: 75px;
+    z-index: 10;
+    outline: none;
+    border: solid;
+    border-width: 2px;
+}
+.js {
+    width: 100%;
+    height: 100%;
+    min-width: 135px;
+    min-height: 25px;
+}
+.jsVar {
+    width: 100%;
+    height: 100%;
+    min-width: 135px;
+    min-height: 25px;
+}
+.html {
+    width: 100%;
+    height: 100%;
+    min-width: 135px;
+    min-height: 25px;
+}
+.css {
+    width: 100%;
+    height: 100%;
+    min-width: 135px;
+    min-height: 25px;
+}

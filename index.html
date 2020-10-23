@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>
+            InDev JS
+        </title>
+        <script src="pageprotect.js"></script>
+        <script src="database.js"></script>
+        <script async src="main.js"></script>
+        <script async src="globals.js"></script>
+        <script async src="draggable.js"></script>
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="classes.css">
+        <link rel="stylesheet" href="attributes.css">
+        <link rel="shortcut icon" type="image/jpg" href="favicon.png">
+    </head>
+
+    <body onload="loginCheck();">
+
+        <div id="header-menu" div-style="dark">
+
+            <div id="header-image">
+                <img src="favicon.png" width="30px" height="30px">
+            </div>
+            <input type="button" id="header-image-spacer" style="width: 30px; background: transparent; border: none; outline: none;">
+            <input type="button" id="header-file-button" color-style="dark" onclick="if(document.getElementById('header-file-dropdown').className == 'hidden') {document.getElementById('header-file-dropdown').className = 'dropdown'} else {document.getElementById('header-file-dropdown').className = 'hidden'}" class="button1" value="File">
+            <input type="button" id="header-edit-button" color-style="dark" onclick="if(document.getElementById('header-edit-dropdown').className == 'hidden') {document.getElementById('header-edit-dropdown').className = 'dropdown'} else {document.getElementById('header-edit-dropdown').className = 'hidden'}" class="button1" value="Edit">
+            <input type="button" id="header-view-button" color-style="dark" onclick="if(document.getElementById('header-view-dropdown').className == 'hidden') {document.getElementById('header-view-dropdown').className = 'dropdown'} else {document.getElementById('header-view-dropdown').className = 'hidden'}" class="button1" value="View">
+            <input type="button" id="header-run-button" color-style="dark" onclick="if(document.getElementById('header-run-dropdown').className == 'hidden') {document.getElementById('header-run-dropdown').className = 'dropdown'} else {document.getElementById('header-run-dropdown').className = 'hidden'}" class="button1" value="Run">
+            <input type="button" id="header-save-button" color-style="dark" class="button1" value="Save" onclick="log('Save feature comming soon')">
+            <input type="button" id="header-load-button" color-style="dark" class="button1" value="Load"  onclick="if(document.getElementById('header-load-dropdown').className == 'hidden') {document.getElementById('header-load-dropdown').className = 'dropdown'} else {document.getElementById('header-load-dropdown').className = 'hidden'}">
+
+            <div class="hidden" style="top: 35px; left: 40px;" id="header-file-dropdown">
+                Comming Soon
+            </div>
+            <div class="hidden" style="left: 78px; top: 35px;" id="header-edit-dropdown">
+                <input type="button" class="button2" value="Blank Javascript Element" onclick="openWindow('CustomJSElmnt', '<textarea class=js></textarea>'); if(document.getElementById('header-edit-dropdown').className == 'hidden') {document.getElementById('header-edit-dropdown').className = 'dropdown'} else {document.getElementById('header-edit-dropdown').className = 'hidden'}">
+                <input type="button" class="button2" value="Blank Javascript Object" onclick="openWindow('CustomJSObj', '<textarea class=jsVar></textarea>'); if(document.getElementById('header-edit-dropdown').className == 'hidden') {document.getElementById('header-edit-dropdown').className = 'dropdown'} else {document.getElementById('header-edit-dropdown').className = 'hidden'}">
+                <input type="button" class="button2" value="Blank HTML Element" onclick="openWindow('CustomHTMLElmnt', '<textarea class=html></textarea>'); if(document.getElementById('header-edit-dropdown').className == 'hidden') {document.getElementById('header-edit-dropdown').className = 'dropdown'} else {document.getElementById('header-edit-dropdown').className = 'hidden'}">
+                <input type="button" class="button2" value="Blank CSS Element" onclick="openWindow('CustomCSSElmnt', '<textarea class=css></textarea>'); if(document.getElementById('header-edit-dropdown').className == 'hidden') {document.getElementById('header-edit-dropdown').className = 'dropdown'} else {document.getElementById('header-edit-dropdown').className = 'hidden'}">
+            </div>
+            <div class="hidden" style="left: 118px; top: 35px;" id="header-view-dropdown">
+                <input type="button" class="button2" value="Window Display" onclick="if(document.getElementById('r-side-menu1').className == 'hidden') {document.getElementById('r-side-menu1').className = ''} else {document.getElementById('r-side-menu1').className = 'hidden'}; if(document.getElementById('header-view-dropdown').className == 'hidden') {document.getElementById('header-view-dropdown').className = 'dropdown'} else {document.getElementById('header-view-dropdown').className = 'hidden'}">
+                <input type="button" class="button2" value="Console" onclick="if(document.getElementById('l-console-display-sec').className == 'hidden') {document.getElementById('l-console-display-sec').className = ''} else {document.getElementById('l-console-display-sec').className = 'hidden'}; if(document.getElementById('header-view-dropdown').className == 'hidden') {document.getElementById('header-view-dropdown').className = 'dropdown'} else {document.getElementById('header-view-dropdown').className = 'hidden'}">
+                <input type="button" class="button2" value="Open Color Picker" onclick="openWindow('ColorPicker', '<input color-style=dark id=colorpicker type=color><p style=display: inline-block>Color HEX Code: </p><input color-style=dark type=text style=display: inline-block; id=colorpickeroutput><button class=button1 color-style=dark onclick=copyColorPickerValue()>Copy HEX</button>'); if(document.getElementById('header-view-dropdown').className == 'hidden') {document.getElementById('header-view-dropdown').className = 'dropdown'} else {document.getElementById('header-view-dropdown').className = 'hidden'}">
+            </div>
+
+            <div class="hidden" style="left: 162px; top: 35px;" id="header-run-dropdown">
+                <input type="button" class="button2" value="Run Current Workspace" onclick="run(currentWorkspace);document.getElementById('header-run-dropdown').className = 'hidden'">
+                <input type="button" class="button2" value="Run Workspace 1" onclick="run('workspace1');document.getElementById('header-run-dropdown').className = 'hidden'">
+                <input type="button" class="button2" value="Run Workspace 2" onclick="run('workspace2');document.getElementById('header-run-dropdown').className = 'hidden'">
+                <input type="button" class="button2" value="Run Workspace 3" onclick="run('workspace3');document.getElementById('header-run-dropdown').className = 'hidden'">
+                <input type="button" class="button2" value="Run Workspace 4" onclick="run('workspace4');document.getElementById('header-run-dropdown').className = 'hidden'">
+                <input type="button" class="button2" value="Run Workspace 5" onclick="run('workspace5');document.getElementById('header-run-dropdown').className = 'hidden'">
+            </div>
+
+            <div id="header-load-dropdown" class="hidden" style="left: 251px; top: 35px;">
+                Comming Soon
+            </div>
+            
+        </div>
+
+        <div id="left-container" div-style="dark">
+
+            <div id="l-side-menu1" style="height: 70%" div-style="dark">
+
+                <!--TEMPLATE: 
+                    <input type="button" color-style="dark" class="button2" value="" onclick="openWindow('name-placeholder', '<textarea class=placeholder></textarea>')">
+                -->
+
+                <p  class="section-header" color-style="dark">
+                    Elements:
+                </p>
+                <div style="height: 10px;"></div>
+
+                <p color-style="light" class="section-header">
+                    Javascript:
+                </p>
+
+                    <input type="button" color-style="dark" class="button2" value="+ New Blank VAR Object" onclick="openWindow('JSObject', '<textarea class=jsVar>var myObject = &quotmyValue&quot;</textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Blank LET Object" onclick="openWindow('JSObject', '<textarea class=jsVar>let myObject = &quotmyValue&quot;</textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Blank CONST Object" onclick="openWindow('JSObject', '<textarea class=jsVar>const myObject = &quotmyValue&quot;</textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New GetElementById Var" onclick="openWindow('GetElementById', '<textarea class=jsVar>var myObject = document.getElementById(&quotmyElementId&quot);</textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Blank Function" onclick="openWindow('Function', '<textarea class=js>function myFunction() {\n    \n};</textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New If Then Function" onclick="openWindow('IfThenFunction', '<textarea class=js>function myFunction() {\n    if() {\n        \n    } else {\n        \n    };\n};</textarea></textarea>')">
+
+
+
+
+
+
+
+                <p color-style="light" class="section-header">
+                    HTML:
+                </p>
+
+                    <input type="button" color-style="dark" class="button2" value="+ New DIV Element" onclick="openWindow('DIV', '<textarea class=html><div id=&quot&quot>  </div></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Button Element" onclick="openWindow('Button', '<textarea class=html><button id=&quot&quot onclick=&quotmyFunction()&quot>  </button></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Text Input Element" onclick="openWindow('TextInput', '<textarea class=html><input type=text id=&quot&quot placeholder=&quot&quot></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New P Element" onclick="openWindow('P', '<textarea class=html><p id=&quot&quot>  </p></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New H1 Element" onclick="openWindow('H1', '<textarea class=html><h1 id=&quot&quot>  </h1></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New H2 Element" onclick="openWindow('H2', '<textarea class=html><h2 id=&quot&quot>  </h2></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New H3 Element" onclick="openWindow('H3', '<textarea class=html><h3 id=&quot&quot>  </h3></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New H4 Element" onclick="openWindow('H4', '<textarea class=html><h4 id=&quot&quot>  </h4></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New H5 Element" onclick="openWindow('H5', '<textarea class=html><h5 id=&quot&quot>  </h5></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New H6 Element" onclick="openWindow('H6', '<textarea class=html><h6 id=&quot&quot>  </h6></textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Blank Input Element" onclick="openWindow('Input', '<textarea class=html><input type=&quot&quot id=&quot&quot></textarea>')">
+
+
+
+                <p color-style="light" class="section-header">
+                    CSS:
+                </p>
+
+                    <input type="button" color-style="dark" class="button2" value="+ New Universal Element Changer" onclick="openWindow('UniversalElmntChanger', '<textarea class=css>myElement {\n    \n}</textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Id Element Changer" onclick="openWindow('ElementCaller', '<textarea class=css>#myId {\n    \n}</textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Class" onclick="openWindow('Class', '<textarea class=css>.myClass {\n    \n}</textarea>')">
+                    <input type="button" color-style="dark" class="button2" value="+ New Attribute" onclick="openWindow('Attribute', '<textarea class=css>[myAttributeName=&quotmyAttributeValue&quot] {\n    \n}</textarea>')">
+    
+            </div>
+
+            <!--<div id="l-side-menu2" div-style="dark" style="height:35%">
+                           
+            </div>-->
+
+            <div id="l-console-display-sec" style="height:30%;" div-style="dark">
+
+                <div style="overflow-y: scroll; width: 100%; height: 90%">
+                    <p id="console2"></p>
+                </div>
+                <input type="text" color-style="dark" id="consoleInput" style="position: absolute; bottom: 0; left:0; width: 80%; height: 26px;">
+                <input type="button" onclick="log(document.getElementById('consoleInput').value)" value="^" class="button1" color-style="dark" style="position: absolute; bottom:0; left:80%; width: 20%">
+
+            </div>
+
+        </div>
+
+        <div id="center-top-container" div-style="dark">
+
+            <input type="button" onclick="openWorkspace1()" color-style="dark" class="button1" value="Workspace 1">
+            <input type="button" onclick="openWorkspace2()" color-style="dark" class="button1" value="Workspace 2">
+            <input type="button" onclick="openWorkspace3()" color-style="dark" class="button1" value="Workspace 3">
+            <input type="button" onclick="openWorkspace4()" color-style="dark" class="button1" value="Workspace 4">
+            <input type="button" onclick="openWorkspace5()" color-style="dark" class="button1" value="Workspace 5">
+            <div style="display: inline-block; width: 25px;"></div>
+            <div color-style="light" class="section-header" style="display: inline-block;">
+                <p style="display: inline-block;">Workspace open:</p>
+                <div style="width: 5px; display: inline-block;"></div>
+                <p style="display: inline-block;" id="currentWorkspaceDisplay">workspace1</p>
+            </div>
+            <div style="display: inline-block; width: 25px;"></div>
+            <div style="display: inline-block;">
+                <input id="closeRunWindow"  type="button" class="hidden" color-style="dark" class="button1" value="Close Run Window" onclick="closeRunWindow()">
+            </div>
+
+        </div>
+
+        <div id="center-main-container">
+
+            <div id="runProduct" class="hidden">
+
+                <div id="run-html-appendable">
+                </div>
+                <div id="run-js-vars-appendable">
+                </div>
+                <div id="run-js-appendable">
+                </div>
+                <div id="run-css-appendable">
+                </div>
+
+            </div>
+
+            <div id="workspace1">
+
+
+
+            </div>
+
+            <div id="workspace2" class="hidden">
+
+
+
+            </div>
+
+            <div id="workspace3" class="hidden">
+
+
+
+            </div>
+
+            <div id="workspace4" class="hidden">
+
+
+
+            </div>
+
+            <div id="workspace5" class="hidden">
+
+
+
+            </div>
+
+
+        </div>
+
+        <div id="right-container" div-style="dark">
+
+            <div id="r-side-menu1" div-style="dark">
+
+                <div class="section-header" color-style="dark">
+                    <p>Display:</p>
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="section-header" color-style="light" id="workspace1windowDisplay">
+
+                    <p>Workspace 1:</p>
+                    
+
+                </div>
+                <div style="height: 5px;"></div>
+                <div class="section-header" color-style="light" id="workspace2windowDisplay">
+
+                    <p>Workspace 2:</p>
+                    
+
+                </div>
+                <div style="height: 5px;"></div>
+                <div class="section-header" color-style="light" id="workspace3windowDisplay">
+
+                    <p>Workspace 3:</p>
+                    
+
+                </div>
+                <div style="height: 5px;"></div>
+                <div class="section-header" color-style="light" id="workspace4windowDisplay">
+
+                    <p>Workspace 4:</p>
+                    
+
+                </div>
+                <div style="height: 5px;"></div>
+                <div class="section-header" color-style="light" id="workspace5windowDisplay">
+
+                    <p>Workspace 5:</p>
+                    
+
+                </div>
+                
+                
+    
+            </div>
+
+        </div>
+
+
+        <div id="dragScriptAppendable"></div>
+        
+    </body>
+
+    
+
+</html>

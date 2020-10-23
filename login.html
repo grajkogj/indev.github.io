@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+        <head>
+                <script src="pageprotect.js"></script>
+                <script src="login.js"></script>
+                <script src="database.js"></script>
+                <link rel="stylesheet" href="classes.css">
+                <link rel="stylesheet" href="attributes.css">
+                <link rel="stylesheet" href="login.css">
+                <link rel="shortcut icon" href="favicon.png">
+        </head>
+
+        <body onload="indexLogOut()">
+
+                <div id="main-sec">
+
+                        <div id="header" color-style="dark">
+
+                                <h1>
+                                        JS InDev
+                                </h1>
+                                <h2>
+                                        Please Log In
+                                </h2>
+
+                        </div>
+
+                        <div id="info-sec" color-style="light">
+                                <input type="text" class="txtinput" id="uname-input" placeholder="Username" color-style="dark">
+                                <input type="password" class="txtinput" id="pword-input" placeholder="Password" color-style="dark">
+                                <input type="submit" onclick="login();return false;" color-style="dark" class="button1">
+
+                                <p id="response"></p>
+
+                        </div>
+
+                </div>
+
+        </body>
+
+</html>
